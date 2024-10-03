@@ -1,2 +1,0 @@
-# sandbox
-test område 
