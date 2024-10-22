@@ -1,0 +1,41 @@
+const grades = [
+  { grade: "F", treshold: 0 },
+  { grade: "E", treshold: 25 },
+  { grade: "D", treshold: 44 },
+  { grade: "C", treshold: 68 },
+  { grade: "B", treshold: 88 },
+  { grade: "A", treshold: 100 }
+];
+
+document.getElementById('karakterForm').addEventListener('submit', function(event) {
+  event.preventDefault();  // Hindrer formens standard handling (side refresh)
+
+  // Hent verdier fra input-feltene
+  const poengOppgave1 = parseFloat(document.getElementById('oppgave1').value);
+  const poengOppgave2 = parseFloat(document.getElementById('oppgave2').value);
+
+  // Sjekk om begge feltene er fylt inn
+  if (isNaN(poengOppgave1) || isNaN(poengOppgave2)) {
+    alert('Vennligst fyll inn begge poengsummene');
+    return;
+  }
+
+  // Maks poeng for hver oppgave
+  const maksPoengOppgave1 = 10;
+  const maksPoengOppgave2 = 12;
+
+  // Beregn karakter basert på formelen
+  const prosent = (0.3 * (poengOppgave1 / maksPoengOppgave1 * 100)) + 
+                  (0.7 * (poengOppgave2 / maksPoengOppgave2 * 100));
+
+  // Finn riktig karakter basert på prosent
+  let karakter = 'F';
+  for (let i = 0; i < grades.length; i++) {
+    if (prosent >= grades[i].treshold) {
+      karakter = grades[i].grade;
+    }
+  }
+
+  // Vis resultatet til brukeren
+  document.getElementById('karakterResultat').textContent = karakter;
+});

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karakterkalkulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Karakterkalkulator</h1>
+
+  <form id="karakterForm">
+    <label for="oppgave1">Poeng på oppgave 1 (maks 10):</label>
+    <input type="number" id="oppgave1" max="10" min="0" required>
+    
+    <label for="oppgave2">Poeng på oppgave 2 (maks 12):</label>
+    <input type="number" id="oppgave2" max="12" min="0" required>
+
+    <button type="submit" id="beregnKnapp">Beregn karakter</button>
+  </form>
+
+  <h2>Din karakter: <span id="karakterResultat"></span></h2>
+
+  <script src="script.js"></script>
+</body>
+</html>
